@@ -24,6 +24,21 @@
                 }
             }
 
+            int X = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < M; i++)
+            {
+
+                for (int j = 0; j < N; j++)
+                {
+
+                    if (mat[i, j] == X)
+                    {
+                        Console.WriteLine($"Position {i},{j}");
+                    }
+
+                }
+            }
 
         }
     }
