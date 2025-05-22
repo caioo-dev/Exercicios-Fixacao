@@ -4,34 +4,30 @@
     {
         public string Name { get; private set; }
         public int RegistrationNumber { get; private set; }
-        public double[] Grades { get; private set; }
+        public List<double> Grades { get; private set; }
 
         public Student(string name, int registrationNumber)
         {
             Name = name;
             RegistrationNumber = registrationNumber;
+            Grades = new List<double>();
         }
 
-        public Student(string name, int registrationNumber, double[] grades) : this(name, registrationNumber)
+        public void AddGrade(double grade)
         {
-            Grades = grades;
+            Grades.Add(grade);
         }
 
-        public void AddGrades(double[] grades)
+        public double GetAverage()
         {
-            Grades = grades;
-        }
+            if (Grades.Count == 0) return 0;
 
-        public static void AverageGrades(double[] grades)
-        {
             double total = 0;
-
-            for(int i = 0; i < grades.Length; i++)
+            foreach (var grade in Grades)
             {
-                total += grades[i];
+                total += grade;
             }
-
-            Console.WriteLine(total / grades.Length);
+            return total / Grades.Count;
         }
     }
 }
