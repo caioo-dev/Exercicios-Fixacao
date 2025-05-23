@@ -13,9 +13,9 @@
             Grades = new List<double>();
         }
 
-        public void AddGrade(double grade)
+        public void AddGrades(params double[] grades)
         {
-            Grades.Add(grade);
+            Grades.AddRange(grades);
         }
 
         public double GetAverage()
@@ -29,5 +29,11 @@
             }
             return total / Grades.Count;
         }
+
+        public override string ToString()
+        {
+            return $"Nome: {Name}, Matricula: {RegistrationNumber}";
+        }
+   
     }
 }
