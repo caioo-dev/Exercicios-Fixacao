@@ -3,7 +3,13 @@
     internal class Carrinho
     {
 
-        List<Produto> produtos = new List<Produto>();
+        private List<Produto> produtos = new List<Produto>();
+
+        public IReadOnlyList<Produto> ObterProdutos()
+        {
+            return produtos.AsReadOnly();
+        }
+
 
         public void AdicionarProduto(Produto novo)
         {
@@ -26,14 +32,20 @@
             produtos.Remove(p);
         }
 
-        public void RemoverQuantidadesProduto(Produto p)
+        public void RemoverQuantidadesProduto(Produto p, int quantidade)
         {
-            Console.WriteLine("Quantas quantidades do produto deseja remover? ");
-            int qte = int.Parse(Console.ReadLine());
+            if (quantidade <= 0 || quantidade > p.Quantidade)
+            {
+                Console.WriteLine("Quantidade inválida.");
+                return;
+            }
 
-            p.Quantidade -= qte;
+            p.Quantidade -= quantidade;
 
+            if (p.Quantidade == 0)
+                produtos.Remove(p);
         }
+
 
         public double CalcularTotal()
         {

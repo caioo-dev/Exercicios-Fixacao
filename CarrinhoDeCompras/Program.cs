@@ -21,7 +21,7 @@ namespace CarrinhoDeCompras
 
             Console.WriteLine($"\nTotal da compra: R$ {carrinho.CalcularTotal():F2}");
 
-            carrinho.RemoverQuantidadesProduto(arroz); // simula input e subtrai
+            carrinho.RemoverQuantidadesProduto(arroz, 3); // simula input e subtrai
 
             Console.WriteLine("\nApós remover quantidades de arroz:");
             carrinho.ExibirTodosProdutos();

@@ -16,7 +16,11 @@ namespace CarrinhoDeCompras
         {
             Id = lastId++;
             Descricao = descricao;
+
+            if (preco < 0) throw new ArgumentException("Preço não pode ser negativo.");
             Preco = preco;
+
+            if (quantidade < 0) throw new ArgumentException("Quantidade não pode ser negativa.");
             Quantidade = quantidade;
         }
 
