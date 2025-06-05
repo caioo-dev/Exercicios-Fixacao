@@ -1,4 +1,5 @@
 ﻿using Marketplace.Entities;
+using System.Globalization;
 
 namespace Marketplace
 {
@@ -30,7 +31,7 @@ namespace Marketplace
                 Console.Write("Product name: ");
                 string productName = Console.ReadLine();
                 Console.Write("Product price: ");
-                double price = double.Parse(Console.ReadLine());
+                double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 Console.Write("Quantity: ");
                 int quantity = int.Parse(Console.ReadLine());
 
@@ -40,7 +41,7 @@ namespace Marketplace
             }
 
             Console.WriteLine("ORDER SUMMARY: ");
-            Console.WriteLine(order);
+            Console.WriteLine(order.ToString());
         }
     }
 }

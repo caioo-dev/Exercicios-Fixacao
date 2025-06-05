@@ -25,7 +25,7 @@ namespace Marketplace.Entities
             Product = product;
         }
 
-        public double subTotal()
+        public double SubTotal()
         {
             return Price * Quantity;
         }
