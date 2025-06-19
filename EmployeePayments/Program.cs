@@ -31,13 +31,11 @@ namespace EmployeePayments
                     Console.Write("Additional charge: ");
                     double additionalCharge = double.Parse(Console.ReadLine());
 
-                    Employee outsourcedEmployee = new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
-                    employees.Add(outsourcedEmployee);
+                    employees.Add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
                     continue;
                 }
 
-                Employee employee = new Employee(name, hours, valuePerHour);
-                employees.Add(employee);
+                employees.Add(new Employee(name, hours, valuePerHour));
             }
 
             Console.WriteLine("PAYMENTS: ");
