@@ -26,12 +26,12 @@ namespace BankAccountErrorHandling.Entities
         }
         public void Withdraw(double amount) 
         {
-            if (Balance <= 0)
+            if (amount > Balance)
             {
                 throw new DomainException("Not enough balance");
             }
 
-            if(amount < WithdrawLimit)
+            if(amount > WithdrawLimit)
             {
                 throw new DomainException("The amount exceeds withdraw limit");
             }
